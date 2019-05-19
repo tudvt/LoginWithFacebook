@@ -1,4 +1,6 @@
 
+<%@page import="model.Profile_Bean"%>
+<%@page import="model.Profile_Modal"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,8 +12,12 @@ pageEncoding="ISO-8859-1"%>
 <body>
 <%
 String access_token=(String)request.getParameter("access_token");
-
+Profile_Modal obj_Profile_Modal=new Profile_Modal();
+Profile_Bean obj_Profile_Bean= obj_Profile_Modal.call_me(access_token);
 %>
-User name : <%=access_token %>
+Name : <%=obj_Profile_Bean.getUser_name() %><br>
+Email : <%=obj_Profile_Bean.getEmail() %><br>
+id : <%=obj_Profile_Bean.getId() %><br>
+
 </body>
 </html>
